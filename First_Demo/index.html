@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Guvi_Task_7</title>
+    </head>
+    <body>
+        <h1>Hello</h1>
+        <script>
+            function handleData()
+        {
+                let data = JSON.parse(this.responseText)
+                var arr=[]
+                for(e of data)
+                {
+                    var population=e.population;
+                     arr.push(population)
+                }
+             function sumPopulation(prev,curr)
+             {
+                return prev+curr;
+             }
+             console.log(arr.reduce(sumPopulation))
+        }
+            const req = new XMLHttpRequest();
+             req.addEventListener('load',handleData)
+            req.open("GET","https://restcountries.com/v3.1/all")
+            req.send()
+        </script>
+    </body>
+</html>
+
+//Base Fare + (Cost per minute * time in ride) + (Cost per mile * ride distance) + Booking Fee = Your Fare
